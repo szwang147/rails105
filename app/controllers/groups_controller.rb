@@ -10,7 +10,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
-]
+
   end
 
   def new
