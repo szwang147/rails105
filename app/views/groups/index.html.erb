@@ -9,6 +9,7 @@
       <td>#</td>
       <td>title</td>
       <td>description</td>
+      <td>creator</td>
     </tr>
   </thead>
 
@@ -18,6 +19,7 @@
     <td>#</td>
     <td><%= link_to(group.title, group_path(group)) %></td>
     <td><%= group.description %></td>
+    <td><%= group.user.email %></td>
     <td><%= link_to('Edit', edit_group_path(group), class: "btn btn-danger",) %>
       <%= link_to("Delete", group_path(group), class: "btn btn-danger",
       method: :delete, data: {confirm: "are you sure to delete?"})%>
