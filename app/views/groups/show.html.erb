@@ -8,4 +8,26 @@
   </div>
   <h2><%= @group.title %></h2>
   <p><%= @group.description %></p>
+
+<!-- 以下是post的相关内容 -->
+<table class="table">
+  <thead>
+    <tr>
+      <th>article content</th>
+      <th>creator</th>
+      <th>creator time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.content %></td>
+        <td><%= post.user.email %></td>
+        <td><%= post.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
 </div>
