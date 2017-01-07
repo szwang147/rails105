@@ -15,10 +15,8 @@ create_jos = for i in 1..5 do
   Group.create!(title: "group no.#{i}", description: "created by #{i} group for something", user_id:"1")
 end
 
-create_jos = for i in 1..10 do
-  Post.create!(content: "#{i} post for something", user_id:"1", group_id:"1")
-  Post.create!(content: "#{i} post for something", user_id:"1", group_id:"2")
-  Post.create!(content: "#{i} post for something", user_id:"1", group_id:"3")
-  Post.create!(content: "#{i} post for something", user_id:"1", group_id:"4")
-  Post.create!(content: "#{i} post for something", user_id:"1", group_id:"5")
+create_jos = for i in 1..9 do
+  create_jos = for k in 1..5 do
+  Post.create!(content: "#{i} post for something", user_id:"1",group_id:"#{k}")
+end
 end
