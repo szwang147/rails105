@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+puts "1@1, 10groups, 10post,"
+
+create_account = User.create(email: "1@1", password:"123123")
+
+create_jos = for i in 1..5 do
+  Group.create!(title: "group no.#{i}", description: "created by #{i} group for something", user_id:"1")
+end
+
+create_jos = for i in 1..10 do
+  Post.create!(content: "#{i} post for something", user_id:"1", group_id:"1")
+  Post.create!(content: "#{i} post for something", user_id:"1", group_id:"2")
+  Post.create!(content: "#{i} post for something", user_id:"1", group_id:"3")
+  Post.create!(content: "#{i} post for something", user_id:"1", group_id:"4")
+  Post.create!(content: "#{i} post for something", user_id:"1", group_id:"5")
+end
