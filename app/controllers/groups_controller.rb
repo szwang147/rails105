@@ -8,8 +8,11 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     # @posts = @group.posts
-      # @posts = @group.posts.order("created_at DESC")
-      @posts = @group.posts.order.recent
+    # @posts = @group.posts.order("created_at DESC")
+      # @posts = @group.posts.recent
+      # @posts = @group.posts.recent.paginate(:page => params[:page], :per_page => 5) 换一种写法
+        @posts = @group.posts.recent.paginate(page: params[:page], per_page: 5)
+        # class: "btn btn-primary", :class => "btn btn-primary",
   end
 
   def edit
