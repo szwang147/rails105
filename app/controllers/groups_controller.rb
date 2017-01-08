@@ -27,6 +27,14 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.user = current_user
     if @group.save
+
+      # 以下是完成建立 group 后自动成为 group 的一员
+      current_user.join!(@group)
+      # 其实是引用了user.rb中
+      # def join!(group)
+      #     participated_groups << group
+      #   end
+
     redirect_to groups_path
     else
       render :new
