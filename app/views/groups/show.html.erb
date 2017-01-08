@@ -1,6 +1,14 @@
 <div class="col-md-12">
   <div class="group">
-
+<!-- 以下是对user进行成员的判断 -->
+    <span class="pull-right">
+      <% if current_user && current_user.is_member_of?(@group) %>
+      <label class="label label-success">team member </label>
+      <% else %>
+      <label class="label label-warning">not team member </label>
+      <% end %>
+    </span>
+    
     <%= link_to('write a post', new_group_post_path(@group), class: 'btn btn-warning pull-right') %>
     <% if current_user && current_user == @group.user %>
     <%= link_to("edit", edit_group_path(@group), class: 'btn btn-primary pull-right') %>
