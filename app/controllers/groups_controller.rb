@@ -50,6 +50,31 @@ class GroupsController < ApplicationController
     redirect_to groups_path
   end
 
+  def join
+    @group = Group.find(params[:id])
+
+    if !current_user.is_member_of?(@group)
+      current_user.join!(@group)
+      flash[:notice] = "welcome to this topic and be team member"
+    else
+      flash[:warning] = "u already be team member"
+      # 上面这条flash语句 只有在rails c里面修改过属性 才会出现 否则逻辑上不会有这种情况
+    end
+    redirect_to group_path(@group)
+  end
+
+  def quit
+    @group = Group.find(params[:id])
+
+    if current_user.is_member_of?(@group)
+      current_user.quit!(@group)
+    flash[:alert] = "quit the door and be free"
+  else
+    flash[:warning] = "you are not team member how to quit"
+    # 上面这条flash语句 只有在rails c里面修改过属性 才会出现 否则逻辑上不会有这种情况
+  end
+    redirect_to group_path(@group)
+  end
 private
 
 
