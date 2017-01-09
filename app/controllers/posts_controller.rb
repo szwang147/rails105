@@ -25,7 +25,7 @@ def edit
 end
 
 def update
-  @group = Group.find(params[:group_id])
+  # @group = Group.find(params[:group_id])
   @post = Post.find(params[:id])
     if @post.update(post_params)
       redirect_to account_posts_path, notice: "update success"
